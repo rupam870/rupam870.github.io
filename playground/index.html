@@ -52,7 +52,7 @@ h1 em{font-style:italic}
 
 /* desk */
 .desk{position:relative;border-radius:22px;background-color:var(--soft);background-image:radial-gradient(var(--dot) 1.2px, transparent 1.3px);background-size:22px 22px;overflow:hidden}
-.board{position:relative;width:1200px;height:560px;transform-origin:0 0}
+.board{position:relative;width:1200px;height:690px;transform-origin:0 0}
 .pi{position:absolute;display:block;color:inherit;text-decoration:none;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;transform:rotate(var(--r,0deg));transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .pi:hover{transform:rotate(calc(var(--r,0deg)*.3)) translateY(-4px)}
 .pi.drag{cursor:grabbing;transition:none;transform:rotate(calc(var(--r,0deg)*.3)) scale(1.03)}
@@ -67,9 +67,9 @@ h1 em{font-style:italic}
 .pi:hover .go,.pi:focus-visible .go{opacity:1;transform:none}
 
 /* diwali: the real page, live, scaled down */
-.dw .pm{background:#141416;aspect-ratio:16/10}
+.dw .pm{background:#141416;aspect-ratio:1440/520}
 .dw-frame{position:absolute;inset:0;overflow:hidden}
-.dw-frame iframe{position:absolute;left:0;top:0;width:1120px;height:700px;border:0;transform-origin:0 0;pointer-events:none}
+.dw-frame iframe{position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform-origin:0 0;pointer-events:none}
 /* old lights mock */
 .lights .pm{background:#0E0E1A;aspect-ratio:4/3}
 .lights svg{position:absolute;inset:0;width:100%;height:100%}
@@ -159,12 +159,12 @@ h1 em{font-style:italic}
 
   <div class="desk" id="desk"><div class="board" id="board">
 
-    <a class="pi" data-id="gym" href="/gym/" target="_blank" rel="noopener" style="left:40px;top:48px;width:420px;--r:-2deg">
+    <a class="pi" data-id="gym" href="/gym/" target="_blank" rel="noopener" style="left:40px;top:44px;width:440px;--r:-2deg">
       <div class="pm"><img src="img/gym.webp" alt="A 3D isometric home gym at dusk: squat rack, bench, dumbbells, plants and a mountain window" width="800" height="625"><span class="go">Open ↗</span></div>
       <div class="pl"><b>Home Gym Diorama</b><span>my dream gym, in 3D</span><i>Nov 2026</i></div>
     </a>
 
-    <a class="pi" data-id="pond" href="/nothing-here/" target="_blank" rel="noopener" style="left:492px;top:30px;width:350px;--r:2.2deg">
+    <a class="pi" data-id="pond" href="/nothing-here/" target="_blank" rel="noopener" style="left:560px;top:22px;width:330px;--r:2.2deg">
       <div class="pm"><img src="img/pond.webp" alt="Painted ducks and ducklings swimming in a pond with lily pads and cloud reflections" width="760" height="540"><span class="go">Feed them ↗</span></div>
       <div class="pl"><b>Duck pond</b><span>the 404 page</span><i>Nov 2026</i></div>
     </a>
@@ -173,7 +173,7 @@ h1 em{font-style:italic}
 
 
 
-    <a class="pi dw" data-id="diwali" href="/diwali-2026/" target="_blank" rel="noopener" style="left:868px;top:74px;width:300px;--r:-1.5deg">
+    <a class="pi dw" data-id="diwali" href="/diwali-2026/" target="_blank" rel="noopener" style="left:520px;top:318px;width:640px;--r:-1.2deg">
       <div class="pm"><div class="dw-frame"><iframe src="/diwali-2026/?embed" title="The rupam.work home page with Diwali lights" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe></div><span class="go">Open ↗</span></div>
       <div class="pl"><b>Diwali lights</b><span>the home page, Diwali 2026</span><i>Nov 2026</i></div>
     </a>
@@ -202,7 +202,7 @@ h1 em{font-style:italic}
 <script>
 (function(){
   var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var desk=document.getElementById('desk'), board=document.getElementById('board'), BW=1200, BH=560;
+  var desk=document.getElementById('desk'), board=document.getElementById('board'), BW=1200, BH=690;
   function isPhone(){ return innerWidth<=720; }
   function scale(){ return Math.min(1,desk.clientWidth/BW); }
   function fit(){ if(isPhone()){ desk.style.height=''; return; } var s=scale(); board.style.transform='scale('+s+')'; desk.style.height=(BH*s)+'px'; }
@@ -217,7 +217,7 @@ h1 em{font-style:italic}
   track('Page Viewed',{});
 
   /* remembered layout, per visitor */
-  var KEY='rw-playground-v2', saved={};
+  var KEY='rw-playground-v3', saved={};
   try{ saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ saved={}; }
   function save(){ try{ localStorage.setItem(KEY,JSON.stringify(saved)); }catch(e){} document.getElementById('tidy').hidden=!Object.keys(saved.pos||{}).length; }
   saved.pos=saved.pos||{}; saved.notes=saved.notes||[];
@@ -254,7 +254,7 @@ h1 em{font-style:italic}
 
 
   /* scale the live Diwali page to its tile */
-  function fitFrames(){ document.querySelectorAll('.dw-frame').forEach(function(f){ var i=f.querySelector('iframe'); i.style.transform='scale('+(f.clientWidth/1120)+')'; }); }
+  function fitFrames(){ document.querySelectorAll('.dw-frame').forEach(function(f){ var i=f.querySelector('iframe'); var k=f.clientWidth/1440; i.style.transform='translateY('+(-118*k)+'px) scale('+k+')'; }); }
   addEventListener('resize',fitFrames); fitFrames();
 
   /* Crayons + notes */
@@ -278,7 +278,7 @@ h1 em{font-style:italic}
   form.addEventListener('submit',function(e){
     e.preventDefault(); var t=ta.value.trim(), f=document.getElementById('noteFrom').value.trim(), msg=document.getElementById('sent'), btn=document.getElementById('pinBtn');
     if(!t){ msg.textContent='Write something first.'; ta.focus(); return; }
-    var n={id:Date.now().toString(36),t:t,f:f,c:cur[1],r:Math.round((Math.random()*8-4)*10)/10,x:Math.round(60+Math.random()*(BW-300)),y:Math.round(400+Math.random()*30)};
+    var n={id:Date.now().toString(36),t:t,f:f,c:cur[1],r:Math.round((Math.random()*8-4)*10)/10,y:Math.round(470+Math.random()*60),x:Math.round(40+Math.random()*300)};
     saved.notes.push(n); save(); addPin(n,true);
     btn.disabled=true; msg.textContent='Pinning…';
     track('Playground Note',{crayon:cur[0],length:t.length,has_name:!!f});
