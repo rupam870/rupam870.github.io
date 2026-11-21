@@ -315,7 +315,22 @@ dialog.lb button{min-height:44px;padding:0 20px;border-radius:99px;border:1px so
 
 /* bento showcase for UI screens */
 .bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.pg-more{margin:22px 0 0;font-size:15px}.pg-more a{color:var(--mute);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line)}.pg-more a:hover{color:var(--ink)}
+.pg-card{position:relative;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);align-items:center;margin-top:16px;min-height:300px;border-radius:24px;overflow:hidden;background-color:var(--tile);background-image:radial-gradient(var(--line) 1.2px,transparent 1.4px);background-size:22px 22px;color:var(--ink);text-decoration:none}
+.pg-txt{position:relative;z-index:2;padding:40px 0 40px 40px;max-width:380px}
+.pg-txt b{display:block;font:400 34px/1.05 var(--serif);margin-bottom:12px}
+.pg-txt p{margin:0 0 18px;font-size:15px;line-height:1.55;color:var(--mute)}
+.pg-go{font-size:15px;font-weight:500;border-bottom:1px solid currentColor;padding-bottom:2px}
+.pg-peek{position:relative;align-self:stretch;min-height:300px}
+.pg-peek img{position:absolute;display:block;border-radius:12px;box-shadow:0 1px 2px rgba(0,0,0,.06),0 14px 30px -12px rgba(0,0,0,.3);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.pg-a{width:300px;left:2%;top:30px;transform:rotate(-3deg)}
+.pg-b{width:250px;left:52%;top:-18px;transform:rotate(3deg)}
+.pg-c{width:390px;left:47%;top:206px;transform:rotate(-1.5deg)}
+.pg-card:hover .pg-a{transform:rotate(-5deg) translate(-6px,-4px)}
+.pg-card:hover .pg-b{transform:rotate(5deg) translate(6px,-6px)}
+.pg-card:hover .pg-c{transform:rotate(-.5deg) translate(4px,-6px)}
+.pg-card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (max-width:820px){.pg-card{grid-template-columns:1fr}.pg-txt{padding:28px 22px 4px;max-width:none}.pg-txt b{font-size:30px}.pg-peek{min-height:230px}.pg-a{width:220px;left:-4%;top:28px}.pg-b{width:180px;left:52%;top:8px}.pg-c{width:280px;left:30%;top:140px}}
+@media (prefers-reduced-motion:reduce){.pg-peek img{transition:none}}
 .tile{position:relative;margin:0;background:var(--bg);border-radius:24px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:64px 40px;min-height:560px}
 .tile.full{grid-column:1/-1}
 .tile .stage{display:flex;gap:clamp(16px,4vw,56px);align-items:center;justify-content:center;width:100%}

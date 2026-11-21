@@ -26,7 +26,7 @@
 - [Curelink](https://rupam.work/work/curelink/): scratch-card rewards that got doctors enrolling patients.
 
 ## Side projects
-- [Playground](https://rupam.work/playground/): small things Rupam built for fun, laid out on a desk visitors can rearrange, with crayon notes they can leave her.
+- [Playground](https://rupam.work/playground/): small things Rupam built for fun, laid out on a canvas visitors can pan, zoom and rearrange.
 - [Alphy](https://rupam.work/work/alphy/): a macOS menu-bar plant that wilts when she skips water.
 - [Night Schedule](https://rupam.work/work/night-schedule/): a mobile night routine with four timers.
 - [The Corner Florist](https://rupam.work/corner-florist/): a painted flower stall in the browser; pick stems and send someone a bouquet.

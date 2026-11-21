@@ -361,7 +361,7 @@ const TABS = [
        ${pcPhone('ns2','Night Schedule: tonight list','left:5%;top:3%;width:41%;z-index:2;--hx:-4%;--hy:-2%')}
        ${pcPhone('ns1','Night Schedule: storytelling timer','left:54%;top:11%;width:41%;z-index:1;--hx:4%;--hy:2%')}
      </div>`, false, '#/night-schedule')}
-  </div><p class="pg-more"><a href="https://rupam.work/playground/">Smaller experiments live in the playground →</a></p>`},
+  </div><a class="pg-card" href="https://rupam.work/playground/"><div class="pg-txt"><b>Playground</b><p>Small things I built for fun, between real work. Some are toys, some are tiny details from this site.</p><span class="pg-go">Open the playground →</span></div><div class="pg-peek" aria-hidden="true"><img class="pg-a" src="/img/pg-gym.webp" alt="" loading="lazy" decoding="async"><img class="pg-b" src="/img/pg-pond.webp" alt="" loading="lazy" decoding="async"><img class="pg-c" src="/img/pg-diwali.webp" alt="" loading="lazy" decoding="async"></div></a>`},
   {id:'ui', label:'Dribbble explorations', count:()=>14, html:()=>uiScroller()}
 ];
 
