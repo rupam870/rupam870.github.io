@@ -153,8 +153,7 @@ h1 em{font-style:italic}
 
   <header class="intro">
     <h1>Play<em>ground</em></h1>
-    <p>Small things I built for fun, between real work. Some are toys, some are tiny details from this site. Move them around however you like, and click one to open it.</p>
-    <div class="hint"><i></i><span id="hintTxt">Drag anything around</span><button type="button" id="tidy" hidden>Put things back</button></div>
+    <p>Small things I built for fun, between real work. Some are toys, some are tiny details from this site.</p>
   </header>
 
   <div class="desk" id="desk"><div class="board" id="board">
@@ -207,7 +206,6 @@ h1 em{font-style:italic}
   function scale(){ return Math.min(1,desk.clientWidth/BW); }
   function fit(){ if(isPhone()){ desk.style.height=''; return; } var s=scale(); board.style.transform='scale('+s+')'; desk.style.height=(BH*s)+'px'; }
   addEventListener('resize',fit); fit();
-  document.getElementById('hintTxt').textContent = isPhone() ? 'Tap anything to open it' : 'Drag anything around. Your desk stays the way you leave it.';
 
   /* analytics (same project as the rest of rupam.work) */
   var MP='6696b5ff4c67937ac90bac32597f369c', q=[];
@@ -219,7 +217,7 @@ h1 em{font-style:italic}
   /* remembered layout, per visitor */
   var KEY='rw-playground-v3', saved={};
   try{ saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ saved={}; }
-  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(saved)); }catch(e){} document.getElementById('tidy').hidden=!Object.keys(saved.pos||{}).length; }
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(saved)); }catch(e){}  }
   saved.pos=saved.pos||{}; saved.notes=saved.notes||[];
 
   var z=10;
@@ -245,10 +243,6 @@ h1 em{font-style:italic}
     var p=saved.pos[el.dataset.id]; if(p){ el.style.left=p[0]+'px'; el.style.top=p[1]+'px'; if(p[2]){ el.style.zIndex=p[2]; z=Math.max(z,p[2]); } }
   }
   var DEF={}; board.querySelectorAll('.pi').forEach(function(el){ DEF[el.dataset.id]=[el.style.left,el.style.top]; makeDraggable(el); });
-  document.getElementById('tidy').addEventListener('click',function(){
-    board.querySelectorAll('.pi').forEach(function(el){ var d=DEF[el.dataset.id]; if(d){ el.style.left=d[0]; el.style.top=d[1]; el.style.zIndex=''; } });
-    saved.pos={}; save();
-  });
 
 
 
