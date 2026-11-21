@@ -361,7 +361,7 @@ const TABS = [
        ${pcPhone('ns2','Night Schedule: tonight list','left:5%;top:3%;width:41%;z-index:2;--hx:-4%;--hy:-2%')}
        ${pcPhone('ns1','Night Schedule: storytelling timer','left:54%;top:11%;width:41%;z-index:1;--hx:4%;--hy:2%')}
      </div>`, false, '#/night-schedule')}
-  </div>`},
+  </div><p class="pg-more"><a href="https://rupam.work/playground/">Smaller experiments live in the playground →</a></p>`},
   {id:'ui', label:'Dribbble explorations', count:()=>14, html:()=>uiScroller()}
 ];
 
