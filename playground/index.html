@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://rupam.work/og/playground.jpg">
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script>try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Playground","url":"https://rupam.work/playground/","description":"Small things Rupam Gumber built for fun.","author":{"@type":"Person","name":"Rupam Gumber","gender":"Female","url":"https://rupam.work/"},"hasPart":[{"@type":"CreativeWork","name":"Home Gym Diorama","url":"https://rupam.work/gym/"},{"@type":"CreativeWork","name":"Duck pond","url":"https://rupam.work/nothing-here/"},{"@type":"CreativeWork","name":"Mixing colours","url":"https://rupam.work/about/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Playground","url":"https://rupam.work/playground/","description":"Small things Rupam Gumber built for fun.","author":{"@type":"Person","name":"Rupam Gumber","gender":"Female","url":"https://rupam.work/"},"hasPart":[{"@type":"CreativeWork","name":"Home Gym Diorama","url":"https://rupam.work/gym/"},{"@type":"CreativeWork","name":"Duck pond","url":"https://rupam.work/nothing-here/"},{"@type":"CreativeWork","name":"Diwali lights","url":"https://rupam.work/diwali-2026/"}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Caveat:wght@500;700&family=Geist+Mono:wght@400;500&display=swap">
 <style>
@@ -52,7 +52,7 @@ h1 em{font-style:italic}
 
 /* desk */
 .desk{position:relative;border-radius:22px;background-color:var(--soft);background-image:radial-gradient(var(--dot) 1.2px, transparent 1.3px);background-size:22px 22px;overflow:hidden}
-.board{position:relative;width:1200px;height:980px;transform-origin:0 0}
+.board{position:relative;width:1200px;height:560px;transform-origin:0 0}
 .pi{position:absolute;display:block;color:inherit;text-decoration:none;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;transform:rotate(var(--r,0deg));transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .pi:hover{transform:rotate(calc(var(--r,0deg)*.3)) translateY(-4px)}
 .pi.drag{cursor:grabbing;transition:none;transform:rotate(calc(var(--r,0deg)*.3)) scale(1.03)}
@@ -66,7 +66,11 @@ h1 em{font-style:italic}
 .go{position:absolute;right:10px;top:10px;font:500 12px/1 var(--sans);background:rgba(255,255,255,.92);color:#17171A;padding:7px 10px;border-radius:999px;opacity:0;transform:translateY(-3px);transition:.25s}
 .pi:hover .go,.pi:focus-visible .go{opacity:1;transform:none}
 
-/* diwali lights */
+/* diwali: the real page, live, scaled down */
+.dw .pm{background:#141416;aspect-ratio:16/10}
+.dw-frame{position:absolute;inset:0;overflow:hidden}
+.dw-frame iframe{position:absolute;left:0;top:0;width:1120px;height:700px;border:0;transform-origin:0 0;pointer-events:none}
+/* old lights mock */
 .lights .pm{background:#0E0E1A;aspect-ratio:4/3}
 .lights svg{position:absolute;inset:0;width:100%;height:100%}
 .lights .wire{fill:none;stroke:#2B2B38;stroke-width:2}
@@ -155,32 +159,24 @@ h1 em{font-style:italic}
 
   <div class="desk" id="desk"><div class="board" id="board">
 
-    <a class="pi" data-id="gym" href="/gym/" target="_blank" rel="noopener" style="left:40px;top:44px;width:430px;--r:-2deg">
+    <a class="pi" data-id="gym" href="/gym/" target="_blank" rel="noopener" style="left:40px;top:48px;width:420px;--r:-2deg">
       <div class="pm"><img src="img/gym.webp" alt="A 3D isometric home gym at dusk: squat rack, bench, dumbbells, plants and a mountain window" width="800" height="625"><span class="go">Open ↗</span></div>
       <div class="pl"><b>Home Gym Diorama</b><span>my dream gym, in 3D</span><i>Nov 2026</i></div>
     </a>
 
-    <a class="pi" data-id="pond" href="/nothing-here/" target="_blank" rel="noopener" style="left:520px;top:26px;width:370px;--r:2.2deg">
+    <a class="pi" data-id="pond" href="/nothing-here/" target="_blank" rel="noopener" style="left:492px;top:30px;width:350px;--r:2.2deg">
       <div class="pm"><img src="img/pond.webp" alt="Painted ducks and ducklings swimming in a pond with lily pads and cloud reflections" width="760" height="540"><span class="go">Feed them ↗</span></div>
       <div class="pl"><b>Duck pond</b><span>the 404 page</span><i>Nov 2026</i></div>
     </a>
 
-    <div class="pi bub" data-id="bubble" tabindex="0" style="left:930px;top:70px;width:240px;--r:3deg" aria-label="Bubble Burst, in progress. Tap the bubbles to pop them.">
-      <div class="pm" id="bubbles"><span class="wip">in the works</span><span class="count" id="popCount"></span></div>
-      <div class="pl"><b>Bubble Burst</b><span>pop one</span><i>soon</i></div>
-    </div>
 
-    <a class="pi lights" data-id="lights" href="/" target="_blank" rel="noopener" style="left:70px;top:510px;width:330px;--r:1.5deg">
-      <div class="pm"><svg viewBox="0 0 330 248" aria-hidden="true" id="lightsSvg"></svg><div class="word">product <u>designer</u></div><span class="go">Home page ↗</span></div>
-      <div class="pl"><b>Diwali lights</b><span>lit up the home page</span><i>Nov 2026</i></div>
+
+
+
+    <a class="pi dw" data-id="diwali" href="/diwali-2026/" target="_blank" rel="noopener" style="left:868px;top:74px;width:300px;--r:-1.5deg">
+      <div class="pm"><div class="dw-frame"><iframe src="/diwali-2026/?embed" title="The rupam.work home page with Diwali lights" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe></div><span class="go">Open ↗</span></div>
+      <div class="pl"><b>Diwali lights</b><span>the home page, Diwali 2026</span><i>Nov 2026</i></div>
     </a>
-
-    <a class="pi dots" data-id="dots" href="/about/" target="_blank" rel="noopener" style="left:450px;top:540px;width:440px;--r:1deg">
-      <div class="pm"><canvas id="dotsCv" width="560" height="238" role="img" aria-label="A photo of IIT Roorkee dissolving into dots and re-forming as San Francisco"></canvas><span class="go">See it on About ↗</span></div>
-      <div class="pl"><b>Mixing colours</b><span>photos that form out of dots</span><i>Nov 2026</i></div>
-    </a>
-
-    <div class="pi note" data-id="soon" style="left:950px;top:520px;--r:3deg">more coming soon<small>Bubble Burst is next →</small></div>
 
   </div></div>
 
@@ -206,7 +202,7 @@ h1 em{font-style:italic}
 <script>
 (function(){
   var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var desk=document.getElementById('desk'), board=document.getElementById('board'), BW=1200, BH=980;
+  var desk=document.getElementById('desk'), board=document.getElementById('board'), BW=1200, BH=560;
   function isPhone(){ return innerWidth<=720; }
   function scale(){ return Math.min(1,desk.clientWidth/BW); }
   function fit(){ if(isPhone()){ desk.style.height=''; return; } var s=scale(); board.style.transform='scale('+s+')'; desk.style.height=(BH*s)+'px'; }
@@ -221,7 +217,7 @@ h1 em{font-style:italic}
   track('Page Viewed',{});
 
   /* remembered layout, per visitor */
-  var KEY='rw-playground-v1', saved={};
+  var KEY='rw-playground-v2', saved={};
   try{ saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ saved={}; }
   function save(){ try{ localStorage.setItem(KEY,JSON.stringify(saved)); }catch(e){} document.getElementById('tidy').hidden=!Object.keys(saved.pos||{}).length; }
   saved.pos=saved.pos||{}; saved.notes=saved.notes||[];
@@ -254,50 +250,12 @@ h1 em{font-style:italic}
     saved.pos={}; save();
   });
 
-  /* Diwali lights */
-  (function(){
-    var svg=document.getElementById('lightsSvg'), ns='http://www.w3.org/2000/svg', cols=['#FFD45A','#FF9A3C','#FF6B8B','#FFE7A3','#FFB347'], w=330;
-    function sag(x){ return 18+Math.sin(x/w*Math.PI)*38; }
-    var d='M-10 '+sag(-10); for(var x=0;x<=w+10;x+=10) d+=' L'+x+' '+sag(x);
-    var p=document.createElementNS(ns,'path'); p.setAttribute('d',d); p.setAttribute('class','wire'); svg.appendChild(p);
-    for(var i=0;i<12;i++){ var bx=14+i*27.5, by=sag(bx)+7, c=cols[i%cols.length], g=document.createElementNS(ns,'g'); g.setAttribute('class','bulb'); g.style.color=c; g.style.animationDelay=(i*.13)+'s';
-      g.innerHTML='<rect x="'+(bx-2.5)+'" y="'+(by-6)+'" width="5" height="5" rx="1" fill="#3A3A48"/><ellipse cx="'+bx+'" cy="'+(by+5)+'" rx="5" ry="7.5" fill="'+c+'"/>'; svg.appendChild(g); }
-  })();
 
-  /* Bubble Burst teaser */
-  (function(){
-    var box=document.getElementById('bubbles'), cnt=document.getElementById('popCount'), pops=0;
-    function make(){ var b=document.createElement('span'); b.className='bubble'; var s=24+Math.random()*40;
-      b.style.cssText='width:'+s+'px;height:'+s+'px;left:'+(8+Math.random()*70)+'%;top:'+(6+Math.random()*62)+'%;--d:'+(4+Math.random()*4)+'s';
-      b.addEventListener('pointerdown',function(e){ e.stopPropagation(); if(b.classList.contains('pop')) return; b.classList.add('pop'); pops++; cnt.textContent=pops+' popped'; if(pops===1) track('Bubble Popped',{}); setTimeout(function(){ b.remove(); make(); },220); });
-      box.appendChild(b); }
-    for(var i=0;i<6;i++) make();
-  })();
 
-  /* Mixing colours */
-  (function(){
-    var cv=document.getElementById('dotsCv'), ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
-    Promise.all(['img/pl-ph-roorkee.webp','img/pl-ph-sf.webp'].map(function(s){ return new Promise(function(r){ var im=new Image(); im.onload=function(){ var c=document.createElement('canvas'); c.width=W; c.height=H; var x=c.getContext('2d'); x.drawImage(im,0,0,W,H); r(x.getImageData(0,0,W,H).data); }; im.onerror=function(){ r(new Uint8ClampedArray(W*H*4)); }; im.src=s; }); })).then(function(pics){
-      var N=W*H, rnd=new Float32Array(N), DX=new Float32Array(N), DY=new Float32Array(N), J=new Float32Array(N), g=40, gw=Math.ceil(W/g)+2, cx=new Float32Array(gw*gw), cy=new Float32Array(gw*gw);
-      for(var k=0;k<cx.length;k++){ var a=Math.random()*6.283; cx[k]=Math.cos(a); cy[k]=Math.sin(a); }
-      function lerp(f,x,y){ var fx=x/g, fy=y/g, ix=fx|0, iy=fy|0, tx=fx-ix, ty=fy-iy, kk=iy*gw+ix, A=f[kk]+(f[kk+1]-f[kk])*tx, B=f[kk+gw]+(f[kk+gw+1]-f[kk+gw])*tx; return A+(B-A)*ty; }
-      for(var y=0,i=0;y<H;y++) for(var x=0;x<W;x++,i++){ var an=Math.random()*6.283, m=Math.random(); rnd[i]=Math.random(); DX[i]=lerp(cx,x,y)*.8+Math.cos(an)*m*.6; DY[i]=lerp(cy,x,y)*.8+Math.sin(an)*m*.6; J[i]=Math.random()*2-1; }
-      var img=ctx.createImageData(W,H), px=img.data, last=-1;
-      function draw(A,B,m){ var amp=Math.sin(Math.PI*m), R=34*amp, SP=amp*120, GAP=amp*.4;
-        if(amp<.003){ px.set(m<.5?A:B); ctx.putImageData(img,0,0); return; }
-        for(var y=0,i=0;y<H;y++) for(var x=0;x<W;x++,i++){ var o=i*4, r=rnd[i], src=r<m?B:A;
-          if(((r*9.7)%1)<GAP){ px[o+3]=0; continue; }
-          var sx=(x+DX[i]*R)|0, sy=(y+DY[i]*R)|0; sx=sx<0?0:sx>=W?W-1:sx; sy=sy<0?0:sy>=H?H-1:sy;
-          var j=(sy*W+sx)*4, d=J[i]*SP; px[o]=src[j]+d; px[o+1]=src[j+1]+d; px[o+2]=src[j+2]+d; px[o+3]=src[j+3]; }
-        ctx.putImageData(img,0,0); }
-      draw(pics[0],pics[1],0);
-      if(RM) return;
-      var vis=true, t0=performance.now(); new IntersectionObserver(function(en){ vis=en[0].isIntersecting; }).observe(cv);
-      (function loop(now){ requestAnimationFrame(loop); if(!vis) return;
-        var T=7.6, t=((now-t0)/1000)%T, m; if(t<2.2) m=0; else if(t<3.8) m=(t-2.2)/1.6; else if(t<6) m=1; else m=1-(t-6)/1.6;
-        m=m*m*(3-2*m); var key=Math.round(m*200); if(key===last && (m===0||m===1)) return; last=key; draw(pics[0],pics[1],m); })(performance.now());
-    });
-  })();
+
+  /* scale the live Diwali page to its tile */
+  function fitFrames(){ document.querySelectorAll('.dw-frame').forEach(function(f){ var i=f.querySelector('iframe'); i.style.transform='scale('+(f.clientWidth/1120)+')'; }); }
+  addEventListener('resize',fitFrames); fitFrames();
 
   /* Crayons + notes */
   var CRAYONS=[['Red','#E2574C'],['Orange','#F08A3C'],['Yellow','#E9B52F'],['Green','#3E9C5A'],['Blue','#3B6FD8'],['Purple','#8A5CD6'],['Pink','#E46AA5'],['Brown','#8B5A3C']];
@@ -320,7 +278,7 @@ h1 em{font-style:italic}
   form.addEventListener('submit',function(e){
     e.preventDefault(); var t=ta.value.trim(), f=document.getElementById('noteFrom').value.trim(), msg=document.getElementById('sent'), btn=document.getElementById('pinBtn');
     if(!t){ msg.textContent='Write something first.'; ta.focus(); return; }
-    var n={id:Date.now().toString(36),t:t,f:f,c:cur[1],r:Math.round((Math.random()*8-4)*10)/10,x:Math.round(60+Math.random()*(BW-300)),y:Math.round(800+Math.random()*30)};
+    var n={id:Date.now().toString(36),t:t,f:f,c:cur[1],r:Math.round((Math.random()*8-4)*10)/10,x:Math.round(60+Math.random()*(BW-300)),y:Math.round(400+Math.random()*30)};
     saved.notes.push(n); save(); addPin(n,true);
     btn.disabled=true; msg.textContent='Pinning…';
     track('Playground Note',{crayon:cur[0],length:t.length,has_name:!!f});
