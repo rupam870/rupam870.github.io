@@ -90,7 +90,7 @@ const tileInk = bg => { const h=bg.replace('#',''); const n=parseInt(h.length===
 
 /* ---------- The Corner Florist (side project) ---------- */
 const FLORIST_VIDEO = '/corner-florist-v3.mp4'; // launch video URL (mp4/webm). Empty shows the placeholder.
-const FLORIST_URL = 'https://rupam870.github.io/corner-florist/';   // live app URL. Empty hides the Try now button.
+const FLORIST_URL = 'https://rupam.work/corner-florist/';   // live app URL. Empty hides the Try now button.
 const floristTile = () => `<figure class="tile comp-tile full fl-tile" style="--bg:#EADBC8"${FLORIST_URL?` data-newtab="1" data-label="Try it ↗" data-color="#7A3E2B"`:''}>
   <div class="stage"><div class="comp fl-stage">
     <span class="webframe fl-frame"><span class="fl-bar" aria-hidden="true"><i></i><i></i><i></i></span>

@@ -28,6 +28,10 @@
 ## Side projects
 - [Alphy](https://rupam.work/work/alphy/): a macOS menu-bar plant that wilts when she skips water.
 - [Night Schedule](https://rupam.work/work/night-schedule/): a mobile night routine with four timers.
+- [The Corner Florist](https://rupam.work/corner-florist/): a painted flower stall in the browser; pick stems and send someone a bouquet.
+- [Protein Pan](https://rupam.work/protein-pan/): 28 high-protein vegetarian recipes with a step-by-step cook mode, one step and one timer at a time.
+- [Water Ring Toss](https://rupam.work/water-ring-toss/): the childhood water ring-toss toy, rebuilt as a browser game under the stars.
+- [Home Gym Diorama](https://rupam.work/gym/): a 3D dream home gym you can rearrange, built with Three.js.
 
 ## More
 - [About](https://rupam.work/about/)
