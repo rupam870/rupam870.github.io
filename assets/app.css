@@ -26,6 +26,11 @@ img,svg{max-width:100%}
 .top nav{display:flex;gap:24px;flex-wrap:wrap;font-size:16px}
 .top nav a{text-decoration:none;color:var(--mute)}
 .top nav a[aria-current="page"],.top nav a:hover{color:var(--ink)}
+@media (max-width:520px){.top{flex-wrap:nowrap!important;gap:10px!important;align-items:center!important}.top .name{white-space:nowrap;font-size:14px}.top nav{flex-wrap:nowrap!important;gap:11px!important;font-size:14px!important;white-space:nowrap}.theme-btn{width:32px!important;height:32px!important;margin-right:-6px!important}.theme-btn svg{width:19px;height:19px}}
+@media (max-width:380px){.top .name{font-size:13.5px}.top nav{gap:8px!important;font-size:13.5px!important}}
+@media (max-width:365px){.top nav{gap:6px!important}}
+@media (max-width:340px){.top nav a[href$="resume"]{display:none}}
+
 
 main{display:flex;flex-direction:column;gap:112px;padding:72px 0 64px}
 main > .intro + .work{margin-top:-40px}
