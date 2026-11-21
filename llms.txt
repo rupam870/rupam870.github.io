@@ -32,6 +32,7 @@
 - [The Corner Florist](https://rupam.work/corner-florist/): a painted flower stall in the browser; pick stems and send someone a bouquet.
 - [Protein Pan](https://rupam.work/protein-pan/): 28 high-protein vegetarian recipes with a step-by-step cook mode, one step and one timer at a time.
 - [Water Ring Toss](https://rupam.work/water-ring-toss/): the childhood water ring-toss toy, rebuilt as a browser game under the stars.
+- [Bubble Burst](https://rupam.work/bubble-burst/): a calm sheet of bubble wrap in the browser; pick a wrapped object, unwrap it and pop every bubble.
 - [Home Gym Diorama](https://rupam.work/gym/): a 3D dream home gym you can rearrange, built with Three.js.
 
 ## More
