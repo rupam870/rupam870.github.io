@@ -100,3 +100,18 @@ main:has(.intro.v2){padding-top:28px!important}
   .intro.v2{padding-bottom:96px!important}
   .hz-garden{height:120px!important;bottom:-40px!important}
 }
+/* mobile v2: stacked, one thing at a time, more air */
+@media (max-width:600px){
+  main:has(.intro.v2){padding-top:28px!important}
+  .hero-me{position:relative!important;display:block;right:auto!important;top:auto!important;width:112px!important;margin:0 0 34px 6px;transform:rotate(-4deg)!important}
+  .hero-me .hm-photo{padding:5px 5px 16px!important}
+  .intro.v2 h1.lead{font-size:30px!important;line-height:1.14!important;max-width:none!important;margin-bottom:22px!important}
+  .intro.v2 h1.lead .ask{margin-bottom:4px!important}
+  .intro.v2 p.sub{font-size:16px!important;line-height:1.6!important;margin-bottom:40px!important}
+  .intro.v2 .proof{display:block!important;border-top:1px solid var(--line)!important;padding-top:0!important}
+  .intro.v2 .proof li{display:flex!important;flex-direction:row!important;align-items:baseline;justify-content:space-between;gap:16px!important;padding:16px 0!important;border-left:0!important;border-bottom:1px solid var(--line)}
+  .intro.v2 .proof b{font-size:20px!important;flex:none}
+  .intro.v2 .proof span{font-size:13px!important;text-align:right;max-width:58%;color:var(--mute)}
+  .intro.v2{padding-bottom:150px!important}
+  .hz-garden{height:150px!important;bottom:-50px!important}
+}
