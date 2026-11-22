@@ -82,3 +82,21 @@ main:has(.intro.v2){padding-top:28px!important}
 /* polaroid: no caption */
 .hero-me .hm-cap{display:none!important}
 .hero-me .hm-photo{padding-bottom:22px!important}
+/* mobile: calmer hero */
+@media (max-width:600px){
+  .top .name .wm-stamp{width:34px;height:34px}
+  main:has(.intro.v2){padding-top:14px!important}
+  .intro.v2 h1.lead{font-size:28px!important;line-height:1.1!important;margin-bottom:14px!important;max-width:calc(100% - 96px)!important}
+  .hero-me{width:84px!important;top:4px!important}
+  .hero-me .hm-photo{padding:4px 4px 12px!important}
+  .intro.v2 p.sub{font-size:15px!important;line-height:1.55!important;margin-bottom:18px!important}
+  .intro.v2 .proof{padding-top:16px!important;row-gap:16px!important}
+  .intro.v2 .proof b{font-size:17px!important}
+  .intro.v2 .proof span{font-size:12.5px!important;line-height:1.4!important}
+  .intro.v2 .proof li{gap:4px!important}
+  /* quieter highlights: thin underline, no icons */
+  .intro.v2 .pk{background:none!important;box-shadow:inset 0 -2px 0 rgba(228,196,120,.75)!important;padding:0!important}
+  .intro.v2 .pk::after,.intro.v2 .pk svg,.intro.v2 .pk .pk-i{display:none!important}
+  .intro.v2{padding-bottom:96px!important}
+  .hz-garden{height:120px!important;bottom:-40px!important}
+}
