@@ -473,6 +473,7 @@ about: () => `
    <p>I went to IIT Roorkee to become an engineer. Somewhere between classes I started designing for startups: Explorin first, then Curelink, ClearFeed and Xalts. I also led design for E-Summit, the college's entrepreneurship fest. Each of them handed me a problem with no playbook, and that turned out to be the part I liked most.</p>
    <p>In December 2024 I joined Atlabs AI, when stories were still made of images. Today it makes full AI videos, and I've designed almost everything people touch: the creation flows, the editor, and the video teaser that became where free users upgrade.</p>
    <p>I don't stop at the mockup. I do my own user research and analytics, write my own PRDs, run design walkthroughs, and ship frontend code to production with Claude Code. Founders get fewer meetings, developers get fewer surprises.</p>
+   <p class="st-sign">Rupam</p>
   </div>
   <figure class="ab-portrait st-photo"><button class="zoom" type="button" data-zoom="abPortrait" aria-label="Enlarge Rupam in front of a doodle wall"><img loading="lazy" decoding="async" src="${IMG.abPortrait.src}" width="${IMG.abPortrait.w}" height="${IMG.abPortrait.h}" alt=""></button><figcaption>The unpainted version</figcaption></figure>
  </div>
