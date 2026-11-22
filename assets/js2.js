@@ -341,7 +341,15 @@ function wireThenNow(){
   tnOff=()=>{ removeEventListener('scroll',on); removeEventListener('resize',on); };
 }
 const TABS = [
-  {id:'atlabs', label:'Atlabs', count:()=>projects.length, html:()=>`<p class="plead"><span>Founding designer. The editor, the creation flows, and the moments that decide whether someone stays.</span></p><div class="wgrid wcap-grid">${projects.map(p=>`<div class="wcell">${card(p)}<a class="wcap" href="${p.href}" tabindex="-1" aria-hidden="true"><b>${p.t}</b><span>${p.out||p.d}</span></a></div>`).join('')}</div>`},
+  {id:'atlabs', label:'Atlabs', count:()=>projects.length, html:()=>`<p class="plead"><span>Founding designer. The editor, the creation flows, and the moments that decide whether someone stays.</span></p><div class="bento at-bento">
+    <figure class="tile comp-tile full at-tile at-vt" style="--bg:#F2C6A4" data-label="Read case study" data-color="#7A3E2B"><div class="stage"><div class="comp comp-p">
+       ${pcWeb('vt_teaser','Video teaser on the story page: the first scenes play, the rest stay blurred','left:3%;top:9%;width:68%;z-index:1;--hx:-2%;--hy:-2%')}
+       <span class="pc at-phone" style="left:73%;top:5%;width:23%;z-index:2"><span class="device"><video src="/vt-teaser.mp4" poster="${IMG.vr1.src}" muted loop playsinline autoplay preload="metadata" aria-label="A finished video teaser: 25 seconds play, then it asks you to upgrade"></video></span></span>
+     </div></div><figcaption><b>Video teaser</b><span class="cl"> · 25 free seconds of your own video. It became the main place people upgrade.</span></figcaption><a class="case" href="#/video-teaser">Case study</a></figure>
+    ${compTile('#CDBDEB','Create Image','One calm surface for 24 AI models. ~55k images from ~6.8k creators.', `<div class="comp comp-p">${pcWeb('ci_hero','Create Image: prompt, model picker and results','left:7%;top:16%;width:86%;z-index:1;--hx:0%;--hy:-3%')}</div>`, false, '#/create-image')}
+    ${compTile('#BFDCCB','Editing experience','One editor where every story gets finished: 3 levels, 9 tools.', `<div class="comp comp-p">${pcWeb('ed_story','The story page with scene cards and the player','left:7%;top:16%;width:86%;z-index:1;--hx:0%;--hy:-3%')}</div>`, false, '#/editing-experience')}
+    ${compTile('#1B2A4A','Designing in production','68 merged PRs, written with Claude Code and shipped through CI.', `<div class="comp comp-p">${pcWeb('dp_thumb','68 merged pull requests into production','left:22%;top:12%;width:56%;z-index:1;--hx:0%;--hy:-3%')}</div>`, true, '#/designing-in-production')}
+  </div>`},
   {id:'previous', label:'Previous companies', count:()=>3, html:()=>`<p class="plead"><span>Before Atlabs: Xalts, Curelink and ClearFeed.</span></p>${beforeAtlabs()}`},
   {id:'side', label:'Side projects', count:()=>5, html:()=>`<p class="plead"><span>Things I made for myself.</span></p><div class="bento">
     ${floristTile()}
@@ -415,6 +423,7 @@ const moreHTML = () => `<section class="desk-sec" aria-labelledby="desk-h">
 const pages = {
 home: () => `
 <section class="intro v2">
+  <a class="hero-me" href="#/about" aria-label="About me"><span class="hm-photo"><img src="/img/pc-me.webp" alt="Painted portrait of Rupam on a grassy hill by the sea" width="900" height="1117"></span><span class="hm-cap">me, on a good day <i aria-hidden="true">→</i></span></a>
   <span class="now"><i></i>Founding designer at Atlabs</span>
   <h1 class="lead"><span class="ask">Hand me a messy problem.</span> I'll <span class="nw"><span class="hw" style="--mk:rgba(123,97,255,.16)">design <span class="nw">it <span class="ico i-pen" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="ink" d="M3.5 20.5h8"/><path d="M5 19l3.5-1 9.8-9.8a2.1 2.1 0 0 0-3-3L5.5 15 5 19z"/><path d="M13.8 6.7l3 3" stroke-linecap="butt"/></svg></span></span></span></span> and <span class="hw" style="--mk:rgba(47,91,211,.14)">stay until the numbers <span class="nw">move <span class="ico i-eye" aria-hidden="true"><svg viewBox="0 0 24 24"><g class="lid"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></svg></span></span></span>.</h1>
   <p class="sub"><b>I'm Rupam,</b> founding designer at Atlabs AI. Since December 2024 I've designed almost everything people touch there, as it grew from image-only stories into a full AI video editor.</p>
