@@ -115,3 +115,5 @@ main:has(.intro.v2){padding-top:28px!important}
   .intro.v2{padding-bottom:150px!important}
   .hz-garden{height:150px!important;bottom:-50px!important}
 }
+/* no tape on the hero photo */
+.hero-me .hm-photo::before{display:none!important}
