@@ -341,7 +341,7 @@ function wireThenNow(){
   tnOff=()=>{ removeEventListener('scroll',on); removeEventListener('resize',on); };
 }
 const TABS = [
-  {id:'atlabs', label:'Atlabs', count:()=>projects.length, html:()=>`<p class="plead"><span>Founding designer. The editor, the creation flows, and the moments that decide whether someone stays.</span></p><div class="wgrid wcap-grid">${projects.map(p=>`<div class="wcell">${card(p)}<a class="wcap" href="${p.href}" tabindex="-1" aria-hidden="true"><b>${p.t}</b><span>${p.out||p.d}</span></a></div>`).join('')}</div>${thenNow()}`},
+  {id:'atlabs', label:'Atlabs', count:()=>projects.length, html:()=>`<p class="plead"><span>Founding designer. The editor, the creation flows, and the moments that decide whether someone stays.</span></p><div class="wgrid wcap-grid">${projects.map(p=>`<div class="wcell">${card(p)}<a class="wcap" href="${p.href}" tabindex="-1" aria-hidden="true"><b>${p.t}</b><span>${p.out||p.d}</span></a></div>`).join('')}</div>`},
   {id:'previous', label:'Previous companies', count:()=>3, html:()=>`<p class="plead"><span>Before Atlabs: Xalts, Curelink and ClearFeed.</span></p>${beforeAtlabs()}`},
   {id:'side', label:'Side projects', count:()=>5, html:()=>`<p class="plead"><span>Things I made for myself.</span></p><div class="bento">
     ${floristTile()}
@@ -415,15 +415,16 @@ const moreHTML = () => `<section class="desk-sec" aria-labelledby="desk-h">
 const pages = {
 home: () => `
 <section class="intro v2">
-  <span class="now"><i></i><span>Founding designer at Atlabs AI<span class="iitr"> <span class="sep">·</span> IIT Roorkee</span></span></span>
-  <h1 class="lead"><span class="ask">Hand me a messy problem.</span> I'll <span class="nw"><span class="hw" style="--mk:rgba(123,97,255,.16)">design <span class="nw">it <span class="ico i-pen" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="ink" d="M3.5 20.5h8"/><path d="M5 19l3.5-1 9.8-9.8a2.1 2.1 0 0 0-3-3L5.5 15 5 19z"/><path d="M13.8 6.7l3 3" stroke-linecap="butt"/></svg></span></span></span>,</span> <span class="nw"><span class="hw" style="--mk:rgba(224,112,58,.18)">ship it <span class="nw">myself <span class="ico i-bolt" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2.5 5 13.5h6l-1 8 8-11h-6z"/></svg></span></span></span></span> and <span class="hw" style="--mk:rgba(47,91,211,.14)">stay until the numbers <span class="nw">move <span class="ico i-eye" aria-hidden="true"><svg viewBox="0 0 24 24"><g class="lid"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></svg></span></span></span>.</h1>
-  <p class="sub"><b>I'm Rupam,</b> founding designer at Atlabs AI. Since December 2024 I've designed almost everything people touch there, as it grew from image-only stories into a full AI video editor. I write a good part of the frontend myself too.</p>
+  <span class="now"><i></i>Founding designer at Atlabs</span>
+  <h1 class="lead"><span class="ask">Hand me a messy problem.</span> I'll <span class="nw"><span class="hw" style="--mk:rgba(123,97,255,.16)">design <span class="nw">it <span class="ico i-pen" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="ink" d="M3.5 20.5h8"/><path d="M5 19l3.5-1 9.8-9.8a2.1 2.1 0 0 0-3-3L5.5 15 5 19z"/><path d="M13.8 6.7l3 3" stroke-linecap="butt"/></svg></span></span></span></span> and <span class="hw" style="--mk:rgba(47,91,211,.14)">stay until the numbers <span class="nw">move <span class="ico i-eye" aria-hidden="true"><svg viewBox="0 0 24 24"><g class="lid"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></svg></span></span></span>.</h1>
+  <p class="sub"><b>I'm Rupam,</b> founding designer at Atlabs AI. Since December 2024 I've designed almost everything people touch there, as it grew from image-only stories into a full AI video editor.</p>
   <ul class="proof" aria-label="Highlights">
-    <li><b>Founding designer</b><span>Atlabs AI since Dec 2024. My fifth startup.</span></li>
-    <li><b>Where people upgrade</b><span>The video teaser I designed for free users.</span></li>
-    <li><b>68 merged PRs</b><span>Frontend I wrote and shipped, as of Oct 2026.</span></li>
-    <li><b>1st runner-up</b><span>Adobe Designathon '24.</span></li>
+    <li><b>Founding designer</b><span>Atlabs, AI video creation. Product, site and growth.</span></li>
+    <li><b>5 startups</b><span>Atlabs, Xalts, ClearFeed, Curelink, Explorin</span></li>
+    <li><b>1st runner-up</b><span>Adobe Designathon '24</span></li>
+    <li><b>IIT Roorkee</b><span>JEE Advanced, top 0.5 percentile</span></li>
   </ul>
+
 </section>
 <section class="work" aria-label="Work">
   <div class="tabs-wrap"><nav class="tabs" aria-label="Selected work">${TABS.map(t=>`<button type="button" id="tab-${t.id}" data-tab="${t.id}" aria-controls="panel-${t.id}" aria-current="${t.id===currentTab}">${t.label}<span class="ct" aria-hidden="true">${t.count()}</span></button>`).join('')}</nav></div>
@@ -443,13 +444,13 @@ about: () => `
      <svg class="pcd-pmark" viewBox="0 0 96 64" aria-hidden="true"><g fill="none" stroke="#2F5DA8" stroke-width="1.4"><circle cx="32" cy="32" r="27"/><circle cx="32" cy="32" r="20"/><path d="M64 20c6-3 9 3 15 0s9 3 15 0M64 32c6-3 9 3 15 0s9 3 15 0M64 44c6-3 9 3 15 0s9 3 15 0"/></g><text x="32" y="29" text-anchor="middle" font-family="Geist Mono,monospace" font-size="6.2" fill="#2F5DA8" letter-spacing=".8">GURGAON</text><text data-pcdate x="32" y="39" text-anchor="middle" font-family="Geist Mono,monospace" font-size="6.2" fill="#2F5DA8" letter-spacing=".5">22 NOV 26</text></svg>
      <div class="pcd-msg">
       <p class="hello">Hello Dear Human,</p>
-      <p class="meet">Meet <span class="f">Rupam</span></p>
+      <p class="meet">Off the <span class="f">clock</span></p>
       <ul>
-       <li><i></i><span>Founding designer at <b>Atlabs AI</b></span></li>
-       <li><i></i><span>Engineer from <b>IIT Roorkee</b>, chose design</span></li>
-       <li><i></i><span>Worked in <b>5 startups</b>, next stop <b>SF</b></span></li>
+       <li><i></i><span>Mornings at the <b>gym</b>, weekends in the <b>mountains</b></span></li>
+       <li><i></i><span>I think out loud on <b>whiteboards</b> and on <b>X</b></span></li>
+       <li><i></i><span>Building a <b>big life</b>: big cities, open roads</span></li>
       </ul>
-      <p class="take">Hand me the problem and take a break. <span class="f">I've got it.</span></p>
+      <p class="take">Write back anytime. <a class="f" href="mailto:rupamuxdesign@gmail.com">I reply to everyone.</a></p>
      </div>
      <div class="pcd-pass">
       <div><small>From</small><b>Rupam</b><span>Gurgaon, India</span></div>
@@ -515,7 +516,7 @@ about: () => `
     <li><b>Wall of Portfolios</b><span>Featured</span></li>
   </ul>
 </div></section>
-<section class="sec"><h2 class="lab">Off the screen</h2><p class="text" style="margin:0">Most mornings I'm in the gym. Whenever the calendar allows, I'm in the mountains. Both teach the same thing design does: small, honest progress beats one heroic day. The big life I'm building has big cities, open roads, the whole world to see, quiet mornings, and time to help students find their way in.</p></section>
+
 ${onX().replace('<section class="onx">','<section class="onx bigsec" id="s-x">')}`,
 
 atlabs: () => `
@@ -1241,6 +1242,7 @@ ${dec(8,{layout:'split r',ic:'send',short:'Export and publish',title:'Finish wit
  body:'<p>A video isn’t done until it’s somewhere. The export menu re-renders at the resolution you pick, then offers download, a preview link, Premiere Pro, a thumbnail, subtitles as an SRT file, and publishing.</p><p>YouTube publishing came in August 2026, Instagram and Facebook in September. The publish screen writes a title and description from the video, and uses the latest export unless you pick an older one.</p>',
  media:shotF('ed_export','Export Video menu: a preview, resolution 2K, Re-export, and other actions: Download, Preview Link, Premiere Pro, YouTube, Instagram, Facebook, Thumbnail and Subtitles (.SRT)','The export menu.')})}
 </div>
+${thenNow().replace('<section class="tn"','<section class="tn tn-case" data-rail="Then and now"')}
 <section class="sec" id="ed-more" data-rail="More screens"><h2 class="lab">More screens</h2><div>
  <div class="ed-pair">${shotF('ed_timeline','Timeline for scene 1: the clip with tools for crop, flip, rotate, mute and speed, a lane to add image, text or audio, and the AI voiceover lane','The timeline, for second-by-second work.')}${shotF('ed_broll','The B-roll panel: add a heading, subheading or body text, upload an image, and pick sound effects','B-roll: text, images and sound effects.')}</div>
  <div class="ed-pair">${shotF('ed_gen','Generate Video popup: Video 71.1 credits or Storyboard 4.8 credits, with scenes 6 to 11 selected and the model and resolution shown','Making the scenes that are left.')}${shotF('ed_story','The story page with scene cards, whole-video controls and the player','The story page.')}</div>

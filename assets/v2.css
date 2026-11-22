@@ -123,3 +123,18 @@
 .pcd-msg .take .f{white-space:nowrap;display:inline-block}
 @media (max-width:520px){.top .name .nav-av{display:none}.intro.v2 .now .iitr{display:none}}
 @media (max-width:900px){.pcd-cue{display:none}.pcd-stage{padding-bottom:48px}}
+
+/* ===== v2.1: contained, quieter About hero in the site's own palette ===== */
+.pcd{--sea:#2F5BD3;--rose:#2F5BD3;width:auto;margin:0;border-radius:24px;
+  height:clamp(460px,64svh,580px);box-shadow:0 0 0 1px var(--line)}
+.pcd::after{display:none}
+.pcd-stage{padding:24px 20px}
+.pcd-card{width:min(720px,calc(100vw - 180px),calc((clamp(460px,64svh,580px) - 70px) * 1.52))}
+.pcd-msg .meet{font-size:clamp(28px,min(3vw,4.6svh),42px)}
+.pcd-msg{font-size:clamp(13px,min(1.25vw,2svh),16px)}
+.pcd-msg .take a.f{text-decoration:none;border-bottom:1px solid currentColor}
+.pcd-cue{display:none}
+.tn-case{margin-top:8px}
+@media (max-width:900px){.pcd{height:auto;margin:0 -8px}.pcd-card{width:min(440px,calc(100vw - 40px))}.pcd-stage{padding:20px 10px 28px}}
+.pcd-pass .fly{width:clamp(36px,4.5vw,80px)}
+.pcd-pass{min-width:0}.pcd-pass>div{min-width:0}
