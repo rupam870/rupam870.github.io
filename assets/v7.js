@@ -31,3 +31,12 @@
   if(!RM)addEventListener('pointermove',function(e){document.querySelectorAll('.wm .eye').forEach(function(el){var r=el.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2),d=Math.hypot(dx,dy)||1,m=r.width*.22,k=Math.min(1,d/160);
     el.firstChild.style.transform='translate('+(dx/d*m*k).toFixed(2)+'px,'+(dy/d*m*k).toFixed(2)+'px)';});},{passive:true});
 })();
+
+/* videos: load and play only while visible */
+(function(){if(!('IntersectionObserver' in window))return;
+  var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
+    if(e.isIntersecting){if(v.preload==='none')v.preload='auto';if(!RM){var p=v.play();if(p&&p.catch)p.catch(function(){});}}else if(!v.paused)v.pause();});},{rootMargin:'200px 0px'});
+  function scan(){document.querySelectorAll('video[data-ap]:not([data-apw])').forEach(function(v){v.setAttribute('data-apw','');io.observe(v);});}
+  scan();new MutationObserver(scan).observe(document.documentElement,{childList:true,subtree:true});
+})();

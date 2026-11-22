@@ -94,7 +94,7 @@ const FLORIST_URL = 'https://rupam.work/corner-florist/';   // live app URL. Emp
 const floristTile = () => `<figure class="tile comp-tile full fl-tile" style="--bg:#EADBC8"${FLORIST_URL?` data-newtab="1" data-label="Try it ↗" data-color="#7A3E2B"`:''}>
   <div class="stage"><div class="comp fl-stage">
     <span class="webframe fl-frame"><span class="fl-bar" aria-hidden="true"><i></i><i></i><i></i></span>
-    <video class="fl-vid" src="${FLORIST_VIDEO}" poster="/corner-florist-v3.jpg" muted loop playsinline autoplay preload="auto" aria-label="The Corner Florist launch video: picking stems from buckets, wrapping them in kraft paper, adding a gift tag"></video><button type="button" class="fl-snd" data-flsnd aria-label="Turn sound on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="off" d="M17 9l5 5M22 9l-5 5"/><path class="on" d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/></svg></button>
+    <video class="fl-vid" src="${FLORIST_VIDEO}" poster="/corner-florist-v3.jpg" muted loop playsinline data-ap preload="none" aria-label="The Corner Florist launch video: picking stems from buckets, wrapping them in kraft paper, adding a gift tag"></video><button type="button" class="fl-snd" data-flsnd aria-label="Turn sound on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="off" d="M17 9l5 5M22 9l-5 5"/><path class="on" d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/></svg></button>
     </span>
   </div></div>
   <figcaption><b>The Corner Florist</b><span class="cl"> · Pick stems from the buckets, wrap them in kraft paper, send a bouquet.</span></figcaption>
@@ -265,8 +265,8 @@ const UI_SHOTS = [
   {k:'5',  l:'Cleaning services',    kind:'w', bg:'#9FC3E6', by:null}
 ];
 const uiCard = x => `<div class="uicard"><div class="uitile ${x.kind}" style="--bg:${x.bg}">${x.kind==='p'
-  ? `<button class="zoom" type="button" data-zoom="${x.k}" aria-label="Enlarge ${x.l}"><span class="device"><img src="${IMG[x.k].src}" alt="${x.l} recreation"></span></button>`
-  : `<button class="zoom" type="button" data-zoom="${x.k}" aria-label="Enlarge ${x.l}"><img src="${IMG[x.k].src}" alt="${x.l} recreation"></button>`}</div>
+  ? `<button class="zoom" type="button" data-zoom="${x.k}" aria-label="Enlarge ${x.l}"><span class="device"><img loading="lazy" decoding="async" src="${IMG[x.k].src}" alt="${x.l} recreation"></span></button>`
+  : `<button class="zoom" type="button" data-zoom="${x.k}" aria-label="Enlarge ${x.l}"><img loading="lazy" decoding="async" src="${IMG[x.k].src}" alt="${x.l} recreation"></button>`}</div>
 </div>`;
 const uiScroller = () => `<div class="hs-wrap"><div class="hs" id="hs"><div class="hs-sticky">
   <div class="ui-note" id="ui-note"><span class="tag">Dribbble recreations · 2022</span>
@@ -346,7 +346,7 @@ const TABS = [
     ${atTile('at-vt full','#E07B4F','#7A3E2B','Video teaser','25 free seconds of your own video. It became the main place people upgrade.','#/video-teaser',
       pcWeb('vt_fpage','Video teaser on the story page: the first scenes play, the rest stay blurred','left:4%;top:9%;width:64%;z-index:1;--hx:-1%;--hy:-2%')
       + pcWeb('vt_gen','Generate the rest of the scenes as a video or a storyboard','left:50%;top:44%;width:23%;z-index:3;--r:2deg;--hr:0deg;--hy:-3%')
-      + `<span class="pc at-phone" style="left:76%;top:7%;width:19%;z-index:2;--r:-2deg;--hr:0deg"><span class="device"><video src="/vt-teaser.mp4" poster="${IMG.vr1.src}" muted loop playsinline autoplay preload="metadata" aria-label="A finished video teaser: 25 seconds play, then it asks you to upgrade"></video></span></span>`)}
+      + `<span class="pc at-phone" style="left:76%;top:7%;width:19%;z-index:2;--r:-2deg;--hr:0deg"><span class="device"><video src="/vt-teaser.mp4" poster="${IMG.vr1.src}" muted loop playsinline data-ap preload="none" aria-label="A finished video teaser: 25 seconds play, then it asks you to upgrade"></video></span></span>`)}
     ${atTile('at-ed full','#4E9A7C','#1F4A3A','Editing experience','One editor where every story gets finished: 3 levels, 9 tools.','#/editing-experience',
       pcWeb('ed_timeline','The scene editor timeline','left:19%;top:9%;width:62%;z-index:1;--hy:-2%')
       + pcWeb('ed_chars','Story characters panel','left:3%;top:24%;width:20%;z-index:2;--r:-3deg;--hr:-1deg;--hy:-3%')
