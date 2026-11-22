@@ -100,6 +100,7 @@ const floristTile = () => `<figure class="tile comp-tile full fl-tile" style="--
   <figcaption><b>The Corner Florist</b><span class="cl"> · Pick stems from the buckets, wrap them in kraft paper, send a bouquet.</span></figcaption>
   ${FLORIST_URL?`<a class="case fl-cta" href="${FLORIST_URL}" target="_blank" rel="noopener">Try now ↗</a>`:''}
 </figure>`;
+const atTile = (cls,bg,ink,name,line,href,inner) => `<figure class="tile comp-tile at-tile ${cls}" style="--bg:${bg}" data-label="Read case study" data-color="${ink}"><figcaption class="at-head"><span><b>${name}</b><span class="cl">${line}</span></span><a class="case" href="${href}">Case study <i aria-hidden="true">→</i></a></figcaption><div class="stage"><div class="comp at-stage">${inner}</div></div></figure>`;
 const compTile = (bg,name,line,inner,full,href) => `<figure class="tile comp-tile${full?' full':''}" style="--bg:${bg}"${href?` data-label="${/^https?:/.test(href)?'Open on Behance ↗':'Read case study'}" data-color="${tileInk(bg)}"`:''}><div class="stage">${inner}</div><figcaption><b>${name}</b><span class="cl"> · ${line}</span></figcaption>${href?`<a class="case" href="${href}">Case study</a>`:''}</figure>`;
 const beforeAtlabs = () => `<div class="bento">
   ${compTile('#1E3A5F','Xalts','Letting banks bring their own vault', `<div class="comp comp-x">
@@ -341,14 +342,21 @@ function wireThenNow(){
   tnOff=()=>{ removeEventListener('scroll',on); removeEventListener('resize',on); };
 }
 const TABS = [
-  {id:'atlabs', label:'Atlabs', count:()=>projects.length, html:()=>`<p class="plead"><span>Founding designer. The editor, the creation flows, and the moments that decide whether someone stays.</span></p><div class="bento at-bento">
-    <figure class="tile comp-tile full at-tile at-vt" style="--bg:#F2C6A4" data-label="Read case study" data-color="#7A3E2B"><div class="stage"><div class="comp comp-p">
-       ${pcWeb('vt_teaser','Video teaser on the story page: the first scenes play, the rest stay blurred','left:3%;top:9%;width:68%;z-index:1;--hx:-2%;--hy:-2%')}
-       <span class="pc at-phone" style="left:73%;top:5%;width:23%;z-index:2"><span class="device"><video src="/vt-teaser.mp4" poster="${IMG.vr1.src}" muted loop playsinline autoplay preload="metadata" aria-label="A finished video teaser: 25 seconds play, then it asks you to upgrade"></video></span></span>
-     </div></div><figcaption><b>Video teaser</b><span class="cl"> · 25 free seconds of your own video. It became the main place people upgrade.</span></figcaption><a class="case" href="#/video-teaser">Case study</a></figure>
-    ${compTile('#CDBDEB','Create Image','One calm surface for 24 AI models. ~55k images from ~6.8k creators.', `<div class="comp comp-p">${pcWeb('ci_hero','Create Image: prompt, model picker and results','left:7%;top:16%;width:86%;z-index:1;--hx:0%;--hy:-3%')}</div>`, false, '#/create-image')}
-    ${compTile('#BFDCCB','Editing experience','One editor where every story gets finished: 3 levels, 9 tools.', `<div class="comp comp-p">${pcWeb('ed_story','The story page with scene cards and the player','left:7%;top:16%;width:86%;z-index:1;--hx:0%;--hy:-3%')}</div>`, false, '#/editing-experience')}
-    ${compTile('#1B2A4A','Designing in production','68 merged PRs, written with Claude Code and shipped through CI.', `<div class="comp comp-p">${pcWeb('dp_thumb','68 merged pull requests into production','left:22%;top:12%;width:56%;z-index:1;--hx:0%;--hy:-3%')}</div>`, true, '#/designing-in-production')}
+  {id:'atlabs', label:'Atlabs', count:()=>projects.length, html:()=>`<p class="plead"><span>Founding designer. The editor, the creation flows, and the moments that decide whether someone stays.</span></p><div class="bento at-bento at2">
+    ${atTile('at-vt full','#E07B4F','#7A3E2B','Video teaser','25 free seconds of your own video. It became the main place people upgrade.','#/video-teaser',
+      pcWeb('vt_fpage','Video teaser on the story page: the first scenes play, the rest stay blurred','left:4%;top:9%;width:64%;z-index:1;--hx:-1%;--hy:-2%')
+      + pcWeb('vt_gen','Generate the rest of the scenes as a video or a storyboard','left:50%;top:44%;width:23%;z-index:3;--r:2deg;--hr:0deg;--hy:-3%')
+      + `<span class="pc at-phone" style="left:76%;top:7%;width:19%;z-index:2;--r:-2deg;--hr:0deg"><span class="device"><video src="/vt-teaser.mp4" poster="${IMG.vr1.src}" muted loop playsinline autoplay preload="metadata" aria-label="A finished video teaser: 25 seconds play, then it asks you to upgrade"></video></span></span>`)}
+    ${atTile('at-ed full','#4E9A7C','#1F4A3A','Editing experience','One editor where every story gets finished: 3 levels, 9 tools.','#/editing-experience',
+      pcWeb('ed_timeline','The scene editor timeline','left:19%;top:9%;width:62%;z-index:1;--hy:-2%')
+      + pcWeb('ed_chars','Story characters panel','left:3%;top:24%;width:20%;z-index:2;--r:-3deg;--hr:-1deg;--hy:-3%')
+      + pcWeb('ed_broll','B-roll panel with text, images and sound effects','left:78%;top:17%;width:19%;z-index:2;--r:3deg;--hr:1deg;--hy:-3%'))}
+    ${atTile('at-ci','#8D78CF','#3E2F7A','Create Image','One calm surface for 24 AI models. ~55k images from ~6.8k creators.','#/create-image',
+      pcWeb('ci_film','Create Image results in a filmstrip view','left:6%;top:10%;width:76%;z-index:1;--hy:-2%')
+      + pcWeb('ci_picker','Model picker with credits per image','left:56%;top:32%;width:40%;z-index:2;--r:2deg;--hr:0deg;--hy:-4%'))}
+    ${atTile('at-dp','#1F3157','#1F3157','Designing in production','68 merged PRs, written with Claude Code and shipped through CI.','#/designing-in-production',
+      pcWeb('dp_aiedit','AI Edit panel, built and shipped to production','left:7%;top:10%;width:44%;z-index:1;--r:-2deg;--hr:0deg;--hy:-2%')
+      + pcWeb('dp_thumb','68 merged pull requests into production','left:42%;top:24%;width:54%;z-index:2;--r:2deg;--hr:0deg;--hy:-4%'))}
   </div>`},
   {id:'previous', label:'Previous companies', count:()=>3, html:()=>`<p class="plead"><span>Before Atlabs: Xalts, Curelink and ClearFeed.</span></p>${beforeAtlabs()}`},
   {id:'side', label:'Side projects', count:()=>5, html:()=>`<p class="plead"><span>Things I made for myself.</span></p><div class="bento">
@@ -424,13 +432,13 @@ const pages = {
 home: () => `
 <section class="intro v2">
   <a class="hero-me" href="#/about" aria-label="About me"><span class="hm-photo"><img src="/img/pc-me.webp" alt="Painted portrait of Rupam on a grassy hill by the sea" width="900" height="1117"></span><span class="hm-cap">me, on a good day <i aria-hidden="true">→</i></span></a>
-  <h1 class="lead"><span class="ask">Hand me a messy problem.</span> I'll design it and stay until the numbers move.</h1>
-  <p class="sub"><b>I'm Rupam,</b> founding designer at Atlabs AI. Since December 2024 I've designed almost everything people touch there.</p>
+  <h1 class="lead"><span class="ask">Hand me a messy problem.</span> I'll design it &amp; stay until the numbers move.</h1>
+  <p class="sub"><b>I'm <span class="pk" data-peek="me" tabindex="0">Rupam</span>,</b> founding designer at <span class="pk" data-peek="atlabs" tabindex="0">Atlabs AI</span>. Since December 2024 I've designed almost everything people touch there.</p>
   <ul class="proof" aria-label="Highlights">
-    <li><b>Founding designer</b><span>Atlabs, AI video creation. Product, site and growth.</span></li>
-    <li><b>5 startups</b><span>Atlabs, Xalts, ClearFeed, Curelink, Explorin</span></li>
-    <li><b>1st runner-up</b><span>Adobe Designathon '24</span></li>
-    <li><b>IIT Roorkee</b><span>JEE Advanced, top 0.5 percentile</span></li>
+    <li><b class="pk" data-peek="atlabs" tabindex="0">Founding designer</b><span>Atlabs, AI video creation. Product, site and growth.</span></li>
+    <li><b class="pk" data-peek="startups" tabindex="0">5 startups</b><span>Atlabs, Xalts, ClearFeed, Curelink, Explorin</span></li>
+    <li><b class="pk" data-peek="award" tabindex="0">1st runner-up</b><span>Adobe Designathon '24</span></li>
+    <li><b class="pk" data-peek="iitr" tabindex="0">IIT Roorkee</b><span>JEE Advanced, top 0.5 percentile</span></li>
   </ul>
 
 </section>
