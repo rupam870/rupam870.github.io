@@ -1,0 +1,19 @@
+/* trail cursor: a red ball, a fading trail and a one-word verb on things you can use */
+@media (hover:hover) and (pointer:fine){
+  html.tc-on, html.tc-on *{cursor:none!important}
+  html.tc-on input, html.tc-on textarea, html.tc-on [contenteditable="true"]{cursor:text!important}
+  html.tc-on #cursor-label{display:none!important}
+}
+.tc{position:fixed;inset:0;pointer-events:none;z-index:2147482500;opacity:0;transition:opacity .2s ease-out}
+.tc.on{opacity:1}
+.tc span{position:absolute;left:0;top:0;display:block}
+.tc-trail__dot::before,.tc-ball__dot{content:"";position:absolute;border-radius:50%;background:#E33529}
+.tc-trail__dot::before{width:12px;height:12px;left:-6px;top:-6px}
+.tc-ball__in{transition:opacity .22s ease-out,transform .34s cubic-bezier(.22,1,.36,1)}
+.tc-ball__dot{width:14px;height:14px;left:-7px;top:-7px}
+.tc.down .tc-ball__in{transform:scale(.7)}
+.tc-verb__in{transform:scale(.5);opacity:0;transition:opacity .22s ease-out,transform .34s cubic-bezier(.22,1,.36,1);transform-origin:0 0}
+.tc.verb .tc-verb__in{transform:scale(1);opacity:1}
+.tc.verb .tc-ball__in{transform:scale(.6)}
+.tc-verb__w{left:14px!important;top:12px!important;white-space:nowrap;padding:7px 11px;border-radius:999px;background:#E33529;color:#FBF7EF;font:500 12.5px/1 'Geist Mono',ui-monospace,Menlo,monospace;letter-spacing:.04em;text-transform:lowercase;box-shadow:0 8px 20px -10px rgba(0,0,0,.45)}
+@media (prefers-reduced-motion:reduce){.tc-trail{display:none!important}}
