@@ -120,10 +120,10 @@ const financeRow = () => tile('#EFE8DC','Fintech app: wallet, home, stats', dev(
 /* ---------- data ---------- */
 const shot = (k,port) => () => `<div class="mock m-shot${port?' port':''}"><img loading="lazy" decoding="async" src="${IMG[k].src}" width="${IMG[k].w}" height="${IMG[k].h}" alt=""></div>`;
 const projects = [
-  {id:'video-teaser', href:'#/video-teaser', lab:'Video teaser · where people upgrade', c:'#C2410C', t:'Video teaser', tag:'Growth', d:'Free users watch the first 25 seconds of their story; the rest stays blurred. It became the main place people upgrade.', mock:shot('vt_teaser')},
-  {id:'mini-apps', href:'#/create-image', c:'#C2410C', t:'Create Image', tag:'Creation', d:'One calm surface for 24 AI models. ~55k images from ~6.8k creators, as of Oct 2026.', mock:shot('ci_hero')},
-  {id:'editing', href:'#/editing-experience', lab:'Editing experience · 3 levels, 9 tools', c:'#23734A', t:'Editing experience', tag:'Editor', d:'Story page, scene editor, timeline, credits, export and publishing: one editor where every story gets finished.', mock:shot('ed_story')},
-  {id:'designing', href:'#/designing-in-production', c:'#2F5BD3', t:'Designing in production', tag:'Editor', d:'68 merged PRs into production, written with Claude Code and shipped through CI. As of Oct 2026.', mock:shot('dp_thumb')}
+  {id:'video-teaser', out:'25 free seconds of your own video. It became the main place people upgrade.', href:'#/video-teaser', lab:'Video teaser · where people upgrade', c:'#C2410C', t:'Video teaser', tag:'Growth', d:'Free users watch the first 25 seconds of their story; the rest stays blurred. It became the main place people upgrade.', mock:shot('vt_teaser')},
+  {id:'mini-apps', out:'One calm surface for 24 AI models. ~55k images from ~6.8k creators so far.', href:'#/create-image', c:'#C2410C', t:'Create Image', tag:'Creation', d:'One calm surface for 24 AI models. ~55k images from ~6.8k creators, as of Oct 2026.', mock:shot('ci_hero')},
+  {id:'editing', out:'One editor where every story gets finished: 3 levels, 9 tools.', href:'#/editing-experience', lab:'Editing experience · 3 levels, 9 tools', c:'#23734A', t:'Editing experience', tag:'Editor', d:'Story page, scene editor, timeline, credits, export and publishing: one editor where every story gets finished.', mock:shot('ed_story')},
+  {id:'designing', out:'68 merged PRs, written with Claude Code and shipped through CI.', href:'#/designing-in-production', c:'#2F5BD3', t:'Designing in production', tag:'Editor', d:'68 merged PRs into production, written with Claude Code and shipped through CI. As of Oct 2026.', mock:shot('dp_thumb')}
 ];
 const card = p => `<a class="card wtile${p.span?' span2':''}" href="${p.href||'#/case/'+p.id}" data-label="${p.lab||p.t}" data-color="${p.c}" aria-label="${p.t}. ${p.d}">${p.mock()}<span class="tlabel" aria-hidden="true" style="background:${p.c}">${p.t}</span></a>`;
 const episodes = [
@@ -341,7 +341,7 @@ function wireThenNow(){
   tnOff=()=>{ removeEventListener('scroll',on); removeEventListener('resize',on); };
 }
 const TABS = [
-  {id:'atlabs', label:'Atlabs', count:()=>projects.length, html:()=>`<p class="plead"><span>Founding designer. The editor, the creation flows, and the moments that decide whether someone stays.</span></p><div class="wgrid">${projects.map(card).join('')}</div>${thenNow()}`},
+  {id:'atlabs', label:'Atlabs', count:()=>projects.length, html:()=>`<p class="plead"><span>Founding designer. The editor, the creation flows, and the moments that decide whether someone stays.</span></p><div class="wgrid wcap-grid">${projects.map(p=>`<div class="wcell">${card(p)}<a class="wcap" href="${p.href}" tabindex="-1" aria-hidden="true"><b>${p.t}</b><span>${p.out||p.d}</span></a></div>`).join('')}</div>${thenNow()}`},
   {id:'previous', label:'Previous companies', count:()=>3, html:()=>`<p class="plead"><span>Before Atlabs: Xalts, Curelink and ClearFeed.</span></p>${beforeAtlabs()}`},
   {id:'side', label:'Side projects', count:()=>5, html:()=>`<p class="plead"><span>Things I made for myself.</span></p><div class="bento">
     ${floristTile()}
@@ -387,7 +387,7 @@ const panelHTML = t => { const i=TABS.indexOf(t), n=TABS[(i+1)%TABS.length], las
 let currentTab = 'atlabs';
 const moreHTML = () => `<section class="desk-sec" aria-labelledby="desk-h">
  <div class="dk-copy"><h2 id="desk-h">Get to know me.</h2>
-  <p>The story behind the work, or my résumé on one page.</p>
+  <p>The story behind the work, or the same story on one page.</p>
   <div class="dk-hint" aria-hidden="true"><span>pick one up</span>
    <svg width="58" height="22" viewBox="0 0 58 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15C16 5 36 4 53 11"/><path d="M45 5.5l8 5.5-8.5 5"/></svg></div>
  </div>
@@ -395,8 +395,8 @@ const moreHTML = () => `<section class="desk-sec" aria-labelledby="desk-h">
   <a class="dk-obj dk-pol dk-pre" href="#/about" draggable="false" data-k="story" aria-label="Read my story, 2 minute read">
    <div class="dk-inner"><span class="dk-seen" aria-hidden="true">✓</span><div class="dk-body"><span class="dk-tape"></span>
     <div class="dk-flip">
-     <div class="dk-face"><div class="dk-ph"><img alt="Rupam" draggable="false" src="${IMG.abPortrait.src}"></div><em>my story</em></div>
-     <div class="dk-face dk-back"><p>How an engineer from IIT Roorkee ended up designing AI video tools.</p><span>Read it →</span></div>
+     <div class="dk-face"><div class="dk-ph"><img alt="Painted portrait of Rupam" draggable="false" src="/img/pc-me.webp"></div><em>a postcard from me</em></div>
+     <div class="dk-face dk-back"><p>How an engineer from IIT Roorkee became the person you hand the problem to.</p><span>Read it →</span></div>
     </div></div></div>
    <span class="dk-lbl">My story <i>· 2 min read</i></span></a>
   <a class="dk-obj dk-sheet dk-pre" href="#/resume" data-resume draggable="false" data-k="resume" aria-label="Open résumé, one page PDF">
@@ -414,14 +414,15 @@ const moreHTML = () => `<section class="desk-sec" aria-labelledby="desk-h">
 /* ---------- pages ---------- */
 const pages = {
 home: () => `
-<section class="intro">
-  <span class="now"><i></i>Founding designer at Atlabs</span>
-  <h1 class="lead">A <span class="nw"><span class="hw" style="--mk:rgba(123,97,255,.16)">product <span class="nw">designer <span class="ico i-pen" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="ink" d="M3.5 20.5h8"/><path d="M5 19l3.5-1 9.8-9.8a2.1 2.1 0 0 0-3-3L5.5 15 5 19z"/><path d="M13.8 6.7l3 3" stroke-linecap="butt"/></svg></span></span></span> who has a <span class="hw" style="--mk:rgba(47,91,211,.14)"><span class="nw">vision <span class="ico i-eye" aria-hidden="true"><svg viewBox="0 0 24 24"><g class="lid"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></svg></span></span></span>,</span> <span class="nw"><span class="hw" style="--mk:rgba(224,112,58,.18)">executes <span class="nw">fast <span class="ico i-bolt" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2.5 5 13.5h6l-1 8 8-11h-6z"/></svg></span></span></span> and <span class="hw" style="--mk:rgba(59,165,107,.18)">takes the team <span class="nw">ahead <span class="ico i-team" aria-hidden="true"><svg viewBox="0 0 24 24"><g class="ppl"><circle cx="8" cy="8" r="2.6"/><path d="M3.5 18c.6-2.8 2.4-4.4 4.5-4.4s3.9 1.6 4.5 4.4"/><circle cx="15" cy="9" r="2.1"/></g><path class="go" d="M15.5 16.5h5M18.5 14l2.5 2.5-2.5 2.5"/></svg></span></span></span>.</span></h1>
+<section class="intro v2">
+  <span class="now"><i></i><span>Founding designer at Atlabs AI<span class="iitr"> <span class="sep">·</span> IIT Roorkee</span></span></span>
+  <h1 class="lead"><span class="ask">Hand me a messy problem.</span> I'll <span class="nw"><span class="hw" style="--mk:rgba(123,97,255,.16)">design <span class="nw">it <span class="ico i-pen" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="ink" d="M3.5 20.5h8"/><path d="M5 19l3.5-1 9.8-9.8a2.1 2.1 0 0 0-3-3L5.5 15 5 19z"/><path d="M13.8 6.7l3 3" stroke-linecap="butt"/></svg></span></span></span>,</span> <span class="nw"><span class="hw" style="--mk:rgba(224,112,58,.18)">ship it <span class="nw">myself <span class="ico i-bolt" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2.5 5 13.5h6l-1 8 8-11h-6z"/></svg></span></span></span></span> and <span class="hw" style="--mk:rgba(47,91,211,.14)">stay until the numbers <span class="nw">move <span class="ico i-eye" aria-hidden="true"><svg viewBox="0 0 24 24"><g class="lid"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></svg></span></span></span>.</h1>
+  <p class="sub"><b>I'm Rupam,</b> founding designer at Atlabs AI. Since December 2024 I've designed almost everything people touch there, as it grew from image-only stories into a full AI video editor. I write a good part of the frontend myself too.</p>
   <ul class="proof" aria-label="Highlights">
-    <li><b>Founding designer</b><span>Atlabs, AI video creation. Product, site and growth.</span></li>
-    <li><b>5 startups</b><span>Atlabs, Xalts, ClearFeed, Curelink, Explorin</span></li>
-    <li><b>1st runner-up</b><span>Adobe Designathon '24</span></li>
-    <li><b>IIT Roorkee</b><span>JEE Advanced, top 0.5 percentile</span></li>
+    <li><b>Founding designer</b><span>Atlabs AI since Dec 2024. My fifth startup.</span></li>
+    <li><b>Where people upgrade</b><span>The video teaser I designed for free users.</span></li>
+    <li><b>68 merged PRs</b><span>Frontend I wrote and shipped, as of Oct 2026.</span></li>
+    <li><b>1st runner-up</b><span>Adobe Designathon '24.</span></li>
   </ul>
 </section>
 <section class="work" aria-label="Work">
@@ -430,18 +431,50 @@ home: () => `
 </section>`,
 
 about: () => `
-<figure class="abpt" aria-label="Rupam working at an old computer in a field of flowers">
-  <img class="abpt-l" src="/img/ab-field-lav.webp" alt="" decoding="async"><img class="abpt-d" src="/img/ab-field-pop.webp" alt="" decoding="async">
-  
-</figure>
-<section class="ph ab-top"><h1 class="sr-only">About Rupam Gumber</h1>
-  <div class="ab-open"><div class="ab-left">
-    <div class="ab-motto" aria-label="How I work">
-  <blockquote><p class="q">Someone who can <span class="ring">figure it out<svg viewBox="0 0 220 70" preserveAspectRatio="none" aria-hidden="true"><path d="M14 38C8 16 70 6 128 8s86 12 84 30-58 26-116 25S10 52 18 30c6-14 40-22 70-22"/></svg></span>.</p>
-</blockquote>
-  <p class="me">Hand me a problem with no playbook and I'll dig in, ask the questions that matter, and get it done. It's the part of the job I enjoy most.</p>
-  </div></div>
-  <figure class="ab-portrait"><button class="zoom" type="button" data-zoom="abPortrait" aria-label="Enlarge Rupam in front of a doodle wall"><img loading="lazy" decoding="async" src="${IMG.abPortrait.src}" width="${IMG.abPortrait.w}" height="${IMG.abPortrait.h}" alt=""></button><figcaption>Hi, that's me</figcaption></figure></div>
+<section class="pcd" aria-label="A postcard from Rupam"><h1 class="sr-only">About Rupam Gumber</h1>
+ <div class="pcd-bg" data-pcbg><img src="/img/pc-grass.webp" alt="" decoding="async"></div>
+ <canvas class="pcd-garden" data-pcgarden aria-hidden="true"></canvas>
+ <div class="pcd-stage"><div class="pcd-lift" data-pclift>
+  <article class="pcd-card" data-pccard>
+   <div class="pcd-inner">
+    <div class="pcd-photo" data-pcphoto><img src="/img/pc-me.webp" alt="Painted portrait of Rupam sitting on a grassy hill by the sea" decoding="async"><span class="cap">me, on a good day</span></div>
+    <div class="pcd-back">
+     <div class="pcd-stamp"><img src="/img/pc-stamp.webp" alt=""></div>
+     <svg class="pcd-pmark" viewBox="0 0 96 64" aria-hidden="true"><g fill="none" stroke="#2F5DA8" stroke-width="1.4"><circle cx="32" cy="32" r="27"/><circle cx="32" cy="32" r="20"/><path d="M64 20c6-3 9 3 15 0s9 3 15 0M64 32c6-3 9 3 15 0s9 3 15 0M64 44c6-3 9 3 15 0s9 3 15 0"/></g><text x="32" y="29" text-anchor="middle" font-family="Geist Mono,monospace" font-size="6.2" fill="#2F5DA8" letter-spacing=".8">GURGAON</text><text data-pcdate x="32" y="39" text-anchor="middle" font-family="Geist Mono,monospace" font-size="6.2" fill="#2F5DA8" letter-spacing=".5">22 NOV 26</text></svg>
+     <div class="pcd-msg">
+      <p class="hello">Hello Dear Human,</p>
+      <p class="meet">Meet <span class="f">Rupam</span></p>
+      <ul>
+       <li><i></i><span>Founding designer at <b>Atlabs AI</b></span></li>
+       <li><i></i><span>Engineer from <b>IIT Roorkee</b>, chose design</span></li>
+       <li><i></i><span>Worked in <b>5 startups</b>, next stop <b>SF</b></span></li>
+      </ul>
+      <p class="take">Hand me the problem and take a break. <span class="f">I've got it.</span></p>
+     </div>
+     <div class="pcd-pass">
+      <div><small>From</small><b>Rupam</b><span>Gurgaon, India</span></div>
+      <div class="fly"><svg viewBox="0 0 120 30" preserveAspectRatio="none"><path d="M2 24 Q 60 -6 118 24"/></svg><svg class="pl" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" transform="rotate(90 12 12)"/></svg></div>
+      <div class="to"><small>To</small><b>you</b><span data-pcto>this week</span></div>
+     </div>
+    </div>
+   </div>
+   <svg class="pcd-threads" data-pcthreads aria-hidden="true"></svg>
+   <div class="pcd-shade"></div><div class="pcd-shine"></div>
+  </article>
+ </div></div>
+ <a class="pcd-cue" href="#story" data-pccue>Read the longer version <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 3v10M3.5 8.5 8 13l4.5-4.5"/></svg></a>
+</section>
+
+<section class="sec pcd-story" id="story"><h2 class="lab">The longer version</h2>
+ <div class="st-grid">
+  <div class="text st-text">
+   <p class="st-lead">I'm the person you hand the problem to.</p>
+   <p>I went to IIT Roorkee to become an engineer. Somewhere between classes I started designing for startups: Explorin first, then Curelink, ClearFeed and Xalts. I also led design for E-Summit, the college's entrepreneurship fest. Each of them handed me a problem with no playbook, and that turned out to be the part I liked most.</p>
+   <p>In December 2024 I joined Atlabs AI, when stories were still made of images. Today it makes full AI videos, and I've designed almost everything people touch: the creation flows, the editor, and the video teaser that became where free users upgrade.</p>
+   <p>I don't stop at the mockup. I do my own user research and analytics, write my own PRDs, run design walkthroughs, and ship frontend code to production with Claude Code. Founders get fewer meetings, developers get fewer surprises.</p>
+  </div>
+  <figure class="ab-portrait st-photo"><button class="zoom" type="button" data-zoom="abPortrait" aria-label="Enlarge Rupam in front of a doodle wall"><img loading="lazy" decoding="async" src="${IMG.abPortrait.src}" width="${IMG.abPortrait.w}" height="${IMG.abPortrait.h}" alt=""></button><figcaption>The unpainted version</figcaption></figure>
+ </div>
 </section>
 
 <section class="sec"><h2 class="lab">Where I've worked</h2><div class="ab-list">
@@ -482,7 +515,7 @@ about: () => `
     <li><b>Wall of Portfolios</b><span>Featured</span></li>
   </ul>
 </div></section>
-<section class="sec"><h2 class="lab">Off the screen</h2><p class="text" style="margin:0">Most mornings I'm in the gym. Whenever the calendar allows, I'm in the mountains. Both teach the same thing design does: small, honest progress beats one heroic day.</p></section>
+<section class="sec"><h2 class="lab">Off the screen</h2><p class="text" style="margin:0">Most mornings I'm in the gym. Whenever the calendar allows, I'm in the mountains. Both teach the same thing design does: small, honest progress beats one heroic day. The big life I'm building has big cities, open roads, the whole world to see, quiet mornings, and time to help students find their way in.</p></section>
 ${onX().replace('<section class="onx">','<section class="onx bigsec" id="s-x">')}`,
 
 atlabs: () => `
@@ -1653,7 +1686,7 @@ function wireHeroFx(){
   const lead=document.querySelector('.intro .lead'); if(!lead) return;
   const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const dark=()=>document.documentElement.dataset.theme==='dark';
-  const MAP={'i-pen':['designer','#7B61FF',pen],'i-eye':['vision','#2F5BD3',eye],'i-bolt':['executes fast','#E0703A',bolt],'i-team':['takes the team ahead','#2F8F5B',team]};
+  const MAP={'i-pen':['design it','#7B61FF',pen],'i-eye':['stay until the numbers move','#2F5BD3',eye],'i-bolt':['ship it myself','#E0703A',bolt],'i-team':['takes the team ahead','#2F8F5B',team]};
   const icons=[...lead.querySelectorAll('.ico')]; const offs=[];
   const layer=()=>{ const d=document.createElement('div'); d.className='hfx'; d.setAttribute('aria-hidden','true'); document.body.appendChild(d); return d; };
   const NS='http://www.w3.org/2000/svg';
