@@ -100,6 +100,9 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);f
 }
 @media (prefers-reduced-motion:reduce){.pi,.theme-btn *{transition:none!important}}
 </style>
+<style id="v4-paper">:root:not([data-theme="dark"]){--paper:#FBF7EF;--soft:#F3ECDF;--line:#E8DFCE;--dot:#E2D6BF;--glass:rgba(251,247,239,.86)}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#141416;--dot:#2A2A2E;--glass:rgba(20,20,22,.86)}}
+.top .name{display:inline-flex;align-items:center}.top .name .wm-stamp{display:block;width:44px;height:44px;transform:rotate(-4deg);transition:transform .35s cubic-bezier(.2,1.4,.4,1);filter:drop-shadow(0 4px 8px rgba(38,36,31,.18))}.top .name:hover .wm-stamp{transform:rotate(3deg) scale(1.06)}
+@media (max-width:520px){.top .name .wm-stamp{width:38px;height:38px}}</style>
 
 </head>
 <body>
@@ -119,7 +122,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);f
       <div class="pl"><b>Bubble Burst</b><span>a sheet of bubble wrap</span><i>Nov 2026</i></div>
     </a>
     <a class="pi dw" data-id="diwali" href="/diwali-2026/" target="_blank" rel="noopener" style="left:480px;top:300px;width:640px;--r:-1.2deg">
-      <div class="pm"><div class="dw-frame"><iframe src="/diwali-2026/?embed" title="The rupam.work home page with Diwali lights" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe></div><span class="go">Open ↗</span></div>
+      <div class="pm"><div class="dw-frame"><img src="/img/pg-diwali.webp" alt="The rupam.work home page with Diwali lights" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block"></div><span class="go">Open ↗</span></div>
       <div class="pl"><b>Diwali lights</b><span>the home page, Diwali 2026</span><i>Nov 2026</i></div>
     </a>
   </div>
@@ -128,7 +131,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);f
 <div class="chrome">
   <div class="wrap">
     <header class="top">
-      <a class="name" href="/">Rupam Gumber</a>
+      <a class="name" href="/" aria-label="Rupam Gumber, home"><img class="wm-stamp" src="/favicon.svg" width="44" height="44" alt=""></a>
       <nav aria-label="Main">
         <a href="/playground/">Playground</a>
         <a href="/about/">About</a>
@@ -231,7 +234,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);f
   world.querySelectorAll('.pi').forEach(makeDraggable);
 
   /* live Diwali tile: scale the full-width page down, skip the nav */
-  function fitFrames(){ document.querySelectorAll('.dw-frame').forEach(function(f){ var i=f.querySelector('iframe'), k=f.clientWidth/1440; i.style.transform='translateY('+(-118*k)+'px) scale('+k+')'; }); }
+  function fitFrames(){ document.querySelectorAll('.dw-frame').forEach(function(f){ var i=f.querySelector('iframe'); if(!i) return; var k=f.clientWidth/1440; i.style.transform='translateY('+(-118*k)+'px) scale('+k+')'; }); }
   fitFrames();
 
   fit(); addEventListener('resize',function(){ fit(); });
