@@ -424,9 +424,8 @@ const pages = {
 home: () => `
 <section class="intro v2">
   <a class="hero-me" href="#/about" aria-label="About me"><span class="hm-photo"><img src="/img/pc-me.webp" alt="Painted portrait of Rupam on a grassy hill by the sea" width="900" height="1117"></span><span class="hm-cap">me, on a good day <i aria-hidden="true">→</i></span></a>
-  <span class="now"><i></i>Founding designer at Atlabs</span>
-  <h1 class="lead"><span class="ask">Hand me a messy problem.</span> I'll <span class="nw"><span class="hw" style="--mk:rgba(123,97,255,.16)">design <span class="nw">it <span class="ico i-pen" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="ink" d="M3.5 20.5h8"/><path d="M5 19l3.5-1 9.8-9.8a2.1 2.1 0 0 0-3-3L5.5 15 5 19z"/><path d="M13.8 6.7l3 3" stroke-linecap="butt"/></svg></span></span></span></span> and <span class="hw" style="--mk:rgba(47,91,211,.14)">stay until the numbers <span class="nw">move <span class="ico i-eye" aria-hidden="true"><svg viewBox="0 0 24 24"><g class="lid"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></svg></span></span></span>.</h1>
-  <p class="sub"><b>I'm Rupam,</b> founding designer at Atlabs AI. Since December 2024 I've designed almost everything people touch there, as it grew from image-only stories into a full AI video editor.</p>
+  <h1 class="lead"><span class="ask">Hand me a messy problem.</span> I'll design it and stay until the numbers move.</h1>
+  <p class="sub"><b>I'm Rupam,</b> founding designer at Atlabs AI. Since December 2024 I've designed almost everything people touch there.</p>
   <ul class="proof" aria-label="Highlights">
     <li><b>Founding designer</b><span>Atlabs, AI video creation. Product, site and growth.</span></li>
     <li><b>5 startups</b><span>Atlabs, Xalts, ClearFeed, Curelink, Explorin</span></li>
@@ -515,16 +514,19 @@ about: () => `
   </div>
 </section>
 
-<section class="sec"><h2 class="lab">Recognition</h2><div class="ab-rec">
-  <figure class="ab-award"><button class="zoom" type="button" data-zoom="abDesignathon" aria-label="Enlarge Rupam with the Adobe Designathon '24 award"><img loading="lazy" decoding="async" src="${IMG.abDesignathon.src}" width="${IMG.abDesignathon.w}" height="${IMG.abDesignathon.h}" alt="" loading="lazy"></button><figcaption>Adobe Designathon '24</figcaption></figure>
-  <ul class="ab-awards">
-    <li><b>Adobe Designathon '24</b><span>First runner-up</span></li>
-    <li><b>Best CSS</b><span>Site of the Day</span></li>
-    <li><b>Inter-Bhawan Tech Meet, IIT Roorkee</b><span>Winner, Design track</span></li>
-    <li><b>Consult School, IIT Madras</b><span>Top 5</span></li>
-    <li><b>PM School Live Challenge</b><span>First runner-up</span></li>
-    <li><b>Wall of Portfolios</b><span>Featured</span></li>
-  </ul>
+<section class="sec rec2"><h2 class="lab">Recognition</h2><div>
+ <p class="rec-lead">Picked from the crowd, six times.</p>
+ <div class="rec-hero">
+  <figure class="ab-award"><button class="zoom" type="button" data-zoom="abDesignathon" aria-label="Enlarge Rupam with the Adobe Designathon '24 award"><img loading="lazy" decoding="async" src="${IMG.abDesignathon.src}" width="${IMG.abDesignathon.w}" height="${IMG.abDesignathon.h}" alt=""></button><figcaption>Adobe Designathon '24</figcaption></figure>
+  <div><p class="big">1st<br><em>runner-up</em></p><p class="k">Adobe Designathon '24</p></div>
+ </div>
+ <ul class="ros-grid">
+  <li><span class="ros" style="--c:#2E8296;--t:-6deg"><i></i><u></u><em>Winner</em></span><b>Inter-Bhawan Tech Meet</b><small>IIT Roorkee · Design track</small></li>
+  <li><span class="ros" style="--c:#C8553D;--t:5deg"><i></i><u></u><em>1st runner-up</em></span><b>PM School Live Challenge</b><small>Product management</small></li>
+  <li><span class="ros" style="--c:#2F5DA8;--t:-3deg"><i></i><u></u><em>Top 5</em></span><b>Consult School</b><small>IIT Madras</small></li>
+  <li><span class="ros" style="--c:#D9A23B;--t:7deg"><i></i><u></u><em>Site of the Day</em></span><b>Best CSS</b><small>Web design gallery</small></li>
+  <li><span class="ros" style="--c:#8F6BB8;--t:-5deg"><i></i><u></u><em>Featured</em></span><b>Wall of Portfolios</b><small>Curated list</small></li>
+ </ul>
 </div></section>
 
 ${onX().replace('<section class="onx">','<section class="onx bigsec" id="s-x">')}`,
